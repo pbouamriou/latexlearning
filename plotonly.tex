@@ -1,0 +1,30 @@
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+
+\begin{document}
+
+\section{Affichage de functions}
+
+\begin{tikzpicture}
+\begin{axis}[
+	ymax=10,
+	grid=major, 
+	legend cell align = right,
+	legend style={legend pos=north east,
+		font=\tiny,
+		legend columns=2,        cells={anchor=west},        rounded corners=2pt},
+	title=Deux fonctions]
+	\addlegendentry{\raisebox{0.5em}{$f(x)=x^2$}};
+	\addlegendentry{\raisebox{0.5em}{$f(x)=\sqrt{x}$}};
+	\addplot[blue,samples=200]{x^2};
+	\addplot[red,domain=0:20,samples=500]{sqrt(x)};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
