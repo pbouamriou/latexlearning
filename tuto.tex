@@ -1,0 +1,167 @@
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+\usepackage{amsmath} %package mathematique
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{multido} % scripting code latex
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+
+% Nouvelle commande qui utilise le multido
+\newcommand{\emptyLines}[1]{%
+\multido{\iN=1+1}{#1}{\phantom{}\dotfill\newline}
+}
+
+% Definition des parametres pour les listings
+\lstset{%
+backgroundcolor=\color{blue!05!white},
+basicstyle=\normalsize,
+commentstyle=\color{green!40!black},
+keywordstyle=\color{blue!90!black},
+morekeywords={},
+frame=single,
+numbers=left,
+inputencoding=utf8,
+extendedchars=true,
+literate={á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`e}}1 {ê}{{\^e}}1 {ô}{{\^o}}1
+}
+
+\begin{document}
+
+\tableofcontents
+
+\section{Lipsum - Génération de texte}
+
+\lipsum[2] % 2 paragraphes
+
+\section{\'Equations}
+
+\subsection{Racines carrées et fractions}
+
+Voici un ensemble d'exemple d'équations.
+
+\begin{equation}
+\sqrt{3\times x+\left(5+\frac{5}{4}\right)}
+\end{equation}
+
+\begin{equation}
+\frac{5}{\left(1+3\right)} \Rightarrow 5\times\frac{1}{4}
+\end{equation}
+
+\begin{equation}
+	\dfrac {\sqrt {\dfrac {\left( 2x+5\right) ^{2}}{y+2}}}{5}=x
+\end{equation}
+
+\subsection{Puissances et indices}
+
+\begin{equation}
+2^{2+4} = 4
+\end{equation}
+
+\begin{equation}
+2_{5+x}
+\end{equation}
+
+\begin{equation}
+2^{a}_{b}
+\end{equation}
+
+\begin{equation}
+\stackrel{a}{\longleftrightarrow}
+\end{equation}
+
+% Avec le package mathématique
+
+\begin{equation}
+\overset{a}{\longleftrightarrow}
+\end{equation}
+
+\begin{equation}
+\underset{a}{\longleftrightarrow}
+\end{equation}
+
+% La c'est encore mieux :p
+
+\begin{equation}
+\frac{1}{n} \xrightarrow[n \rightarrow \infty]{} 0
+\end{equation}
+
+\subsection{Références}
+
+\begin{equation}\label{Equation de base}
+e^{i\pi}+1=0
+\end{equation}
+
+Voici une référence à l'équation précédente (\ref{Equation de base}).
+
+L'équation est accessible à la page \pageref{Equation de base}.
+
+\section{Images}
+
+Voici la première image :
+\begin{figure}[h] % indique à latex de positionner la figure ou il souhaite ou pas (h = here) t = top, b = botton, p = group figures
+\begin{center}
+\includegraphics[height=2cm]{debian-logo}
+\end{center}
+\end{figure}
+
+% Autre mehode
+%\centering\includegraphics[height=2cm]{debian-logo} \\
+
+\section{Tableaux}
+
+\begin{table}[!h] % Je veux la table ici
+\begin{center}
+	
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{Titre} \\ \hline
+	1	&	2	&	3 \\ \hline
+	4	&	5	&	6 \\ \hline
+\end{tabular}
+
+\caption{tableau d'exemple}
+\end{center}
+\end{table}
+
+\section{Minipages}
+\fbox{
+\begin{minipage}[c]{\dimexpr 0.5\textwidth-2\fboxsep-2\fboxrule-0.25cm \relax}
+	\lipsum[2]
+\end{minipage}}% Pour supprimer l'espace
+\hspace{0.5cm}%
+\fbox{
+\begin{minipage}[c]{\dimexpr 0.5\textwidth-2\fboxsep-2\fboxrule-0.25cm \relax}
+	\lipsum[2]
+\end{minipage}}
+
+\section{Multido}
+
+Texte à remplir :
+
+\emptyLines{10}
+
+\section{Code}
+
+\begin{lstlisting}[language=C,title=Code C,captionpos=b]
+#include <stdio.h>
+	
+/* Method main */
+	
+int main(int argc, char** argv) {
+	return 0;
+}
+\end{lstlisting}
+
+\lstinputlisting[language=C, title=exemple.c, captionpos=b]{exemple.c.txt}
+
+
+\section*{Annexes} % Non présent dans la toc
+
+\end{document}
