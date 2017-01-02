@@ -111,10 +111,13 @@ L'équation est accessible à la page \pageref{Equation de base}.
 \begin{axis}[
 	ymax=10,
 	grid=major, 
-	legend cell align = center,
+	legend cell align = right,
+	legend style={legend pos=north east,
+		font=\tiny,
+		legend columns=2,        cells={anchor=west},        rounded corners=2pt},
 	title=Deux fonctions affichées]
-	\addlegendentry{x};
-	\addlegendentry{y};
+	\addlegendentry{\raisebox{0.5em}{$f(x)=x^2$}};
+	\addlegendentry{\raisebox{0.5em}{$f(x)=\sqrt{x}$}};
 	\addplot[blue,samples=200]{x^2};
 	\addplot[red,domain=0:20,samples=500]{sqrt(x)};
 \end{axis}
