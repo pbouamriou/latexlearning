@@ -5,13 +5,16 @@
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage{amsmath} %package mathematique
 \usepackage{graphicx}
 \usepackage{lipsum}
 \usepackage{multido} % scripting code latex
 \usepackage{listingsutf8}
 \usepackage{xcolor}
+
+%\pgfplotsset{width=7cm,compat=1.13}
 
 % Nouvelle commande qui utilise le multido
 \newcommand{\emptyLines}[1]{%
@@ -147,6 +150,20 @@ Texte à remplir :
 
 \emptyLines{10}
 
+\section{Affichage de functions}
+
+\begin{tikzpicture}
+\begin{axis}[
+	legend style={legend pos=north east, fill=none},
+	grid=major, 
+	title=Deux fonctions affichées]
+	\addplot[blue]{x^2};
+	\addplot[red]{x};
+	\legend{$x^2$,$x$}
+	
+\end{axis}
+\end{tikzpicture}
+
 \section{Code}
 
 \begin{lstlisting}[language=C,title=Code C,captionpos=b]
@@ -163,5 +180,7 @@ int main(int argc, char** argv) {
 
 
 \section*{Annexes} % Non présent dans la toc
+
+
 
 \end{document}
