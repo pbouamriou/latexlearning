@@ -14,7 +14,7 @@
 \usepackage{listingsutf8}
 \usepackage{xcolor}
 
-%\pgfplotsset{width=7cm,compat=1.13}
+\pgfplotsset{compat=1.13}
 
 % Nouvelle commande qui utilise le multido
 \newcommand{\emptyLines}[1]{%
@@ -105,6 +105,21 @@ Voici une référence à l'équation précédente (\ref{Equation de base}).
 
 L'équation est accessible à la page \pageref{Equation de base}.
 
+\section{Affichage de functions}
+
+\begin{tikzpicture}
+\begin{axis}[
+	ymax=10,
+	grid=major, 
+	legend cell align = center,
+	title=Deux fonctions affichées]
+	\addlegendentry{x};
+	\addlegendentry{y};
+	\addplot[blue,samples=200]{x^2};
+	\addplot[red,domain=0:20,samples=500]{sqrt(x)};
+\end{axis}
+\end{tikzpicture}
+
 \section{Images}
 
 Voici la première image :
@@ -149,20 +164,6 @@ Voici la première image :
 Texte à remplir :
 
 \emptyLines{10}
-
-\section{Affichage de functions}
-
-\begin{tikzpicture}
-\begin{axis}[
-	legend style={legend pos=north east, fill=none},
-	ymax=10,
-	grid=major, 
-	title=Deux fonctions affichées]
-	\addplot[blue,samples=200]{x^2};
-	\addplot[red,domain=0:20,samples=500]{sqrt(x)};
-	\legend{$x^2$,$\sqrt{x}$};
-\end{axis}
-\end{tikzpicture}
 
 \section{Code}
 
