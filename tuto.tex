@@ -155,12 +155,12 @@ Texte à remplir :
 \begin{tikzpicture}
 \begin{axis}[
 	legend style={legend pos=north east, fill=none},
+	ymax=10,
 	grid=major, 
 	title=Deux fonctions affichées]
-	\addplot[blue]{x^2};
-	\addplot[red]{x};
-	\legend{$x^2$,$x$}
-	
+	\addplot[blue,samples=200]{x^2};
+	\addplot[red,domain=0:20,samples=500]{sqrt(x)};
+	\legend{$x^2$,$\sqrt{x}$};
 \end{axis}
 \end{tikzpicture}
 
